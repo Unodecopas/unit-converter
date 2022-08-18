@@ -7,4 +7,7 @@
 }
 .App main {
   flex-grow: 1;
+  display: flex;
+  place-items: center;
+  place-content: center;
 }

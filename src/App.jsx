@@ -1,5 +1,6 @@
 import React from 'react'
 import './App.css'
+import Converter from './components/Converter/Converter'
 import Footer from './components/Footer'
 import Header from './components/Header/Header'
 
@@ -8,9 +9,8 @@ const App = () => {
     <div className="App">
       <Header />
       <main>
-
+        <Converter />
       </main>
-      Unit Converter
       <Footer />
     </div>
   )
