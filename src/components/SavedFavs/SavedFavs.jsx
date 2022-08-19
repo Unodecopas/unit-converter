@@ -18,8 +18,8 @@ const SavedFavs = ({ favorites, setFavorites, setSelectedFav }) => {
               <li key={i} onClick={() => handleFav(fav)}>
                 <p>
                   {`${fav.input} ${fav.inputType} -> ${fav.result} ${fav.resulType}`}
-                  <button onClick={() => deleteFavorite(i)}>X</button>
                 </p>
+                  <button onClick={() => deleteFavorite(i)}>X</button>
               </li>
             )
           })

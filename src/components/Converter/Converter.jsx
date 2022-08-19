@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import cross from '../../assets/cross.svg'
+import cross from '../../assets/crossWhite.svg'
+import heart from '../../assets/heart.svg'
 import styles from './styles.module.css'
 
 const OPTIONS = [
@@ -86,6 +87,7 @@ const Converter = ({ favorites, setFavorites, selectedFav }) => {
     <div className={styles.converter}>
       <h2>convert</h2>
       <div className={styles.inputs}>
+        <div className={styles.inputsContainer}>
         <select
           name="type"
           onChange={(e) => e.target.value !== null ? setType(e.target.value) : setType('')}
@@ -100,12 +102,20 @@ const Converter = ({ favorites, setFavorites, selectedFav }) => {
             })
           }
         </select>
-        <button onClick={handleType}><img src={cross} alt="" /></button>
-        <input type="number" value={value} placeholder={value} onChange={e => setValue(e.target.value)}/><span>{type}</span>
+        <button onClick={handleType}>
+          <img src={cross} alt="cross Icon" />
+        </button>
+        </div>
+        <div className={styles.inputsContainer}>
+          <input type="number" value={value} placeholder={value} onChange={e => setValue(e.target.value)}/>
+        <span>{type}</span>
+        </div>
       </div>
       <div className={styles.results}>
-        <button onClick={addFavorite}>♥</button>
-        <p>{result.result} {result.resulType}</p>
+        <button onClick={addFavorite}>
+          <img src={heart} alt="heart Icon" />
+        </button>
+        <h3>{result.result} {result.resulType}</h3>
       </div>
 
     </div>
