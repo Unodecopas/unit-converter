@@ -39,22 +39,32 @@ const OPTIONS = [
     factor: 0.3937
   }
 ]
-const Converter = () => {
+const Converter = ({ favorites, setFavorites }) => {
   const [value, setValue] = useState(0)
-  const [result, setResult] = useState({ result: 0, resulType: '' })
+  const [result, setResult] = useState({ input: 0, inputType: '', result: 0, resulType: '' })
   const [type, setType] = useState('')
 
-  const handleType = (e) => {
-    const value = e.target.value
-    console.log(value)
-    setType(value)
-  }
   useEffect(() => {
     if (type) {
       const selectedOption = OPTIONS.find(obj => obj.target === type)
-      setResult({ result: value / selectedOption.factor, resulType: selectedOption.output })
+      setResult({
+        input: value,
+        inputType: selectedOption.target,
+        result: (value / selectedOption.factor).toFixed(2),
+        resulType: selectedOption.output
+      })
     }
   }, [value, type])
+
+  const handleType = (e) => {
+    const value = e.target.value
+    setType(value)
+  }
+
+  const addFavorite = () => {
+    setFavorites([...favorites, result])
+  }
+
   return (
     <div className={styles.converter}>
       <h2>convert</h2>
@@ -72,9 +82,10 @@ const Converter = () => {
         <input type="number" name={value} onChange={e => setValue(e.target.value)}/><span>{type}</span>
       </div>
       <div className={styles.results}>
-        <button>♥</button>
+        <button onClick={addFavorite}>♥</button>
         <p>{result.result} {result.resulType}</p>
       </div>
+
     </div>
   )
 }
