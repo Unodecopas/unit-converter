@@ -84,7 +84,7 @@ const Converter = ({ favorites, setFavorites, selectedFav }) => {
     setType(changedResult.inputType)
   }
   return (
-    <div className={styles.converter}>
+    <section className={styles.converter}>
       <h2>convert</h2>
       <div className={styles.inputs}>
         <div className={styles.inputsContainer}>
@@ -118,7 +118,7 @@ const Converter = ({ favorites, setFavorites, selectedFav }) => {
         <h3>{result.result} {result.resulType}</h3>
       </div>
 
-    </div>
+    </section>
   )
 }
 
