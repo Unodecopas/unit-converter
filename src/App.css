@@ -8,6 +8,8 @@
 .App main {
   flex-grow: 1;
   display: flex;
+  flex-direction: column;
   place-items: center;
   place-content: center;
+  gap: 2rem;
 }
